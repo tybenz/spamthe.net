@@ -5,7 +5,7 @@ layout: default
 <div class="posts">
   {% for post in site.posts %}
     {% if post.hidden != true %}
-      <a href="{{ post.link }}" class="post">{{ post.title }}</a>
+      <a target="_blank" href="{{ post.link }}" class="post">{{ post.title }}</a>
     {% endif %}
   {% endfor %}
 </div>
