@@ -1,0 +1,34 @@
+{
+  "name": "spamthe.net",
+  "version": "0.0.0",
+  "description": "spam in a can all over da net",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tybenz/spamthe.net.git"
+  },
+  "author": "Tyler Benziger",
+  "bugs": {
+    "url": "https://github.com/tybenz/spamthe.net/issues"
+  },
+  "homepage": "https://github.com/tybenz/spamthe.net",
+  "dependencies": {
+    "express": "~3.0.0",
+    "express3-handlebars": "~0.5.0",
+    "handlebars": "latest",
+    "url": "~0.7.9",
+    "request": "latest",
+    "twitter-oauth": "0.0.6",
+    "moment": "2.4.0",
+    "oauth": "0.9.8"
+  },
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-express": "latest",
+    "grunt-contrib-sass": "latest",
+    "grunt-shell": "latest",
+    "grunt-bookmarklet-thingy": "~0.2.0",
+    "grunt-env": "~0.4.1"
+  }
+}
