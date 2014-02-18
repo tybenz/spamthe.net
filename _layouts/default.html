@@ -1,0 +1,60 @@
+<!--
+-
+-   made by Tyler Benziger
+-   @tybenz
+-   github.com/tybenz
+-   tybenz.com
+-
+-   site repo found here: http://github.com/tybenz/spamthe.net
+-
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ site.name }}</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link href="img/icon.png" rel="shortcut icon">
+</head>
+<body>
+  <div class="sidebar">
+    <img src="img/logo.png" class="spam">
+    <ul class="social-links">
+      <div class="social-links-inner">
+        <li><a target="_blank" class="social behance" href="#"></a></li>
+        <li><a target="_blank" class="social dribbble" href="#"></a></li>
+        <li><a target="_blank" class="social facebook" href="#"></a></li>
+        <li><a target="_blank" class="social google" href="#"></a></li>
+        <li><a target="_blank" class="social like" href="#"></a></li>
+        <li><a target="_blank" class="social linkedin" href="#"></a></li>
+        <li><a target="_blank" class="social pinterest" href="#"></a></li>
+        <li><a target="_blank" class="social rss" href="#"></a></li>
+        <li><a target="_blank" class="social stumbleupon" href="#"></a></li>
+        <li><a target="_blank" class="social twitter" href="#"></a></li>
+        <li><a target="_blank" class="social vimeo" href="#"></a></li>
+        <li><a target="_blank" class="social youtube" href="#"></a></li>
+      </div>
+    </ul>
+  </div>
+  <div class="wrapper">
+    <h1><img src="img/logo.png"> spam in a can all over the net</h1>
+
+    {{ content }}
+  </div>
+  <script type="text/javascript">
+    var links = document.getElementsByClassName( 'social' );
+
+    for ( var i = 0, len = links.length; i < len; i++ ) {
+      link = links[i];
+      link.addEventListener( 'click', function ( evt ) {
+        evt.preventDefault();
+
+        window.location = 'http://twitter.com/spamthenet';
+      });
+    }
+  </script>
+</body>
+</html>

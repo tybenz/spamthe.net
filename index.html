@@ -1,1 +1,11 @@
-<h1>spamthe.net</h1>
+---
+layout: default
+---
+
+<div class="posts">
+  {% for post in site.posts %}
+    {% if post.hidden != true %}
+      <a href="{{ post.link }}" class="post">{{ post.title }}</a>
+    {% endif %}
+  {% endfor %}
+</div>

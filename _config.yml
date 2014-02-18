@@ -1,0 +1,7 @@
+pygments: true
+permalink: /:year/:month/:day/:title
+markdown: rdiscount
+exclude: ['.git']
+name: "spam in a can all over the net"
+description: Web dev pro tips
+url: http://spamthe.net
