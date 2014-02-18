@@ -1,5 +1,57 @@
+function versionCompare(v1, v2, options) {
+    var lexicographical = options && options.lexicographical,
+        zeroExtend = options && options.zeroExtend,
+        v1parts = v1.split('.'),
+        v2parts = v2.split('.');
+
+    function isValidPart(x) {
+        return (lexicographical ? /^\d+[A-Za-z]*$/ : /^\d+$/).test(x);
+    }
+
+    if (!v1parts.every(isValidPart) || !v2parts.every(isValidPart)) {
+        return NaN;
+    }
+
+    if (zeroExtend) {
+        while (v1parts.length < v2parts.length) v1parts.push("0");
+        while (v2parts.length < v1parts.length) v2parts.push("0");
+    }
+
+    if (!lexicographical) {
+        v1parts = v1parts.map(Number);
+        v2parts = v2parts.map(Number);
+    }
+
+    for (var i = 0; i < v1parts.length; ++i) {
+        if (v2parts.length == i) {
+            return 1;
+        }
+
+        if (v1parts[i] == v2parts[i]) {
+            continue;
+        }
+        else if (v1parts[i] > v2parts[i]) {
+            return 1;
+        }
+        else {
+            return -1;
+        }
+    }
+
+    if (v1parts.length != v2parts.length) {
+        return -1;
+    }
+
+    return 0;
+}
+
 // Add jQuery to any page that does not have it already.
 (function () {
+  if ( window.jQuery ) {
+    if ( versionCompare(jQuery.fn.jquery, "1.9.1") === -1 ) {
+      window.jQuery = null;
+    }
+  }
 
   if ( !window.jQuery ) {
     var s = document.createElement('script');
@@ -11,38 +63,38 @@
 })();
 
 // Client
-(function ( $, window, document ){
-  var selected = $( 'title' ).text();
+(function ( jQuery, window, document ){
+  var selected = jQuery( 'title' ).text();
 
-  $( '*' ).each (function () {
-    $( this ).css( 'border', '3px solid aqua' );
+  jQuery( '*' ).each (function () {
+    jQuery( this ).css( 'border', '3px solid aqua' );
   });
 
-  var $selected = $( '<div id="spam-client-selected" style="position: absolute; background: red; color: white; padding: 30px; width: 300px; height: 300px; z-index: 9999"><textarea class="spam-client-title">' + selected + '</textarea><a href="#" id="spam-post-submit">Post</a></div>' );
-  var $ta = $selected.find( 'textarea' );
+  var jQueryselected = jQuery( '<div id="spam-client-selected" style="position: absolute; background: red; color: white; padding: 30px; width: 300px; height: 300px; z-index: 9999"><textarea class="spam-client-title">' + selected + '</textarea><a href="#" id="spam-post-submit">Post</a></div>' );
+  var jQueryta = jQueryselected.find( 'textarea' );
 
-  $( 'body' ).prepend( $selected );
+  jQuery( 'body' ).prepend( jQueryselected );
 
-  $( document ).on( 'click', function ( evt ) {
+  jQuery( document ).on( 'click', function ( evt ) {
     evt.preventDefault();
 
-    var $target = $( evt.target );
+    var jQuerytarget = jQuery( evt.target );
 
-    if ( !$target.closest( '#spam-client-selected' ).length ) {
-      selected = $.trim( $target.text() );
+    if ( !jQuerytarget.closest( '#spam-client-selected' ).length ) {
+      selected = jQuery.trim( jQuerytarget.text() );
 
-      $ta.val( selected );
+      jQueryta.val( selected );
     }
   });
 
-  $ta.on( 'input', function () {
-    selected = $.trim( $( this ).val() );
+  jQueryta.on( 'input', function () {
+    selected = jQuery.trim( jQuery( this ).val() );
   });
 
-  $( '#spam-post-submit' ).on( 'click', function ( evt ) {
+  jQuery( '#spam-post-submit' ).on( 'click', function ( evt ) {
     evt.preventDefault();
 
-    $.ajax({
+    jQuery.ajax({
       url: 'http://localhost:9098/tweet_link',
       type: 'post',
       dataType: 'json',
