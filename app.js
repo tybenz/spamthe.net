@@ -29,6 +29,12 @@ function allowCrossDomain( req, res, next ) {
     next();
 }
 
+function rawurlencode (str) {
+  str = (str + '').toString();
+
+  return str.replace(/'/g, "’");
+}
+
 app.post( '/tweet_link', function ( req, res, next ) {
     if ( !req.body.url ) {
         res.status(500);
@@ -44,12 +50,12 @@ app.post( '/tweet_link', function ( req, res, next ) {
 
     var title = req.body.title.replace( /"/g, '' ),
         url = req.body.url,
-        fileTitle = title.replace( /\s/g, '-' ).replace( /,|\:/g, '' ).toLowerCase();
+        fileTitle = title.replace( /\s/g, '-' ).replace( /,|\:/g, '' ).replace(/'|’/g, '').toLowerCase();
 
     oauth.post(
         "https://api.twitter.com/1.1/statuses/update.json",
         process.env.SPAM_SERVER_ACCESS_TOKEN, process.env.SPAM_SERVER_ACCESS_TOKEN_SECRET,
-        { "status": title + ' ' + url },
+        { "status": rawurlencode(title) + ' ' + url },
         function( error, data ) {
             if ( error ) {
                 console.log( require( 'sys' ).inspect( error ) );
