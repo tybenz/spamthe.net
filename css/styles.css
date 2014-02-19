@@ -7,6 +7,10 @@ html {
   position: fixed;
 }
 
+.irc {
+  text-align: center;
+}
+
 .social-links {
   margin: 20px 0 0;
   padding: 0 0 0 58px;
@@ -186,5 +190,9 @@ a {
   .social-links-inner {
     width: 48rem;
     overflow: hidden;
+  }
+
+  .irc {
+    display: none;
   }
 }
