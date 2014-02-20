@@ -13,8 +13,8 @@ layout: none
         <item>
           <title>{{ post.title | xml_escape }}</title>
           <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-          <link>{{ post.link | url_encode }}</link>
-          <guid isPermaLink="true">{{ post.link | url_encode }}</guid>
+          <link>{{ post.rss_link }}</link>
+          <guid isPermaLink="true">{{ post.rss_link }}</guid>
         </item>
       {% endif %}
     {% endfor %}
