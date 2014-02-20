@@ -2,6 +2,6 @@ pygments: true
 permalink: /:year/:month/:day/:title
 markdown: rdiscount
 exclude: ['.git']
-name: "spam in a can all over the net"
-description: Web dev pro tips
+name: "spamthenet"
+description: "spam in a can all over the net"
 url: http://spamthe.net
