@@ -6,7 +6,7 @@ require 'uri'
 # Ref: http://tools.ietf.org/html/rfc3986#page-12
 module URLEncoding
   def url_encode(url)
-    return url.gsub( /&/, '%26' )
+    return url.gsub( /&/, '&amp;' )
   end
 end
 
