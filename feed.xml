@@ -15,7 +15,7 @@ layout: none
           <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
           <link>{{ post.rss_link }}</link>
           <guid isPermaLink="true">{{ post.rss_link }}</guid>
-          <category>{{ forloop.index | modulo:4 }}</category>
+          <category>{% capture index %}{{ forloop.index | modulo:4 }}{% endcapture %}{% if index == "0" %}color: inherit; display: block; margin-bottom: 10px; text-align: left; font-size: 18px; padding: 20px 30px; border: 2px outset aqua;{% endif %}{% if index == "1" %}color: inherit; display: block; margin-bottom: 10px; text-align: left; font-size: 18px; box-shadow: 0 0 0 1px white, 0 0 0 2px magenta; padding: 20px 30px; border: 1px solid red;{% endif %}{% if index == "2" %}color: inherit; display: block; margin-bottom: 10px; text-align: left; font-size: 18px; padding: 20px 30px; border: 2px groove yellow;{% endif %}{% if index == "3" %}color: inherit; display: block; margin-bottom: 10px; text-align: left; font-size: 18px; padding: 20px 30px; border: 2px dotted red;{% endif %}</category>
         </item>
       {% endif %}
     {% endfor %}
