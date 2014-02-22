@@ -7,10 +7,6 @@ html {
   position: fixed;
 }
 
-.irc {
-  text-align: center;
-}
-
 .social-links {
   margin: 20px 0 0;
   padding: 0 0 0 58px;
@@ -142,6 +138,38 @@ a {
   background-image: url(../img/social/youtube.png);
 }
 
+#newsletter-signup form {
+  padding: 0;
+  width: 223px;
+  margin: 0 auto 4rem;
+  font-size: 14px;
+}
+
+#newsletter-signup .title {
+  margin-bottom: 0.5em;
+}
+
+#newsletter-signup input {
+  font-family: monospace;
+  font-size: inherit;
+  outline: none;
+}
+
+#newsletter-signup input[type=email] {
+  width: 96%;
+  padding: 2%;
+  color: blue;
+  border: 1px solid black;
+}
+
+#newsletter-signup input[type=submit] {
+  margin: 0.5em 0 0;
+  padding: 0.5em;
+  border: none;
+  background: magenta;
+  color: white;
+}
+
 @media screen and (max-width: 57.25rem) {
   .sidebar {
     position: static;
@@ -185,6 +213,10 @@ a {
     display: block;
     max-width: 100%;
     margin: 4rem auto 0;
+  }
+
+  #newsletter-signup {
+    display: none;
   }
 }
 
