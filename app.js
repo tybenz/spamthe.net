@@ -65,6 +65,7 @@ app.post( '/tweet_link', function ( req, res, next ) {
                 console.log( data );
 
                 // create new post file
+                // make sure the relative path is right
                 var spamWeb = path.join( __dirname, '..', 'spam-web' );
                 var postsDir = path.join( __dirname, '..', 'spam-web', '_posts' );
                 var datetime = moment().format('YYYY-MM-DD hh:mm:ssa');
@@ -72,7 +73,7 @@ app.post( '/tweet_link', function ( req, res, next ) {
                     var postFile = path.join( __dirname, '..', 'spam-web', '_posts', moment().format( 'YYYY-MM-DD-' ) + fileTitle + '.md' );
                     var templateText = fs.readFileSync( path.join( __dirname, 'post.md.hbs' ), { encoding: 'utf-8' } );
                     var postTemplate = handlebars.compile( templateText );
-                    var post = postTemplate( { title: title, url: url, datetime: datetime } );
+                    var post = postTemplate( { title: title, url: url, rss_url: url.replace( /&/, "&amp;" ), datetime: datetime } );
                     var written = fs.writeFileSync( postFile, post );
                     sys.exec( "cd " + spamWeb + " && git add " + postFile + " && git commit -m 'Added " + title + "' && git push origin gh-pages" );
 
