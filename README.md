@@ -11,9 +11,14 @@ site).
 There is a node.js app that listens for a request that specifies a title and a
 URL. The node app creates a tweet on behalf of the @spamthenet account, and
 creates a file in the gh-pages branch of this repo and pushes to github,
-resulting in a new entry on the website (and the newsletter). There is also a
-chat bot idling in the IRC channel who listens to tweets from @spamthenet and
-notifies all users in the channel.
+resulting in a new entry on the website (and the newsletter).
+
+The requests are made the node app through a bookmarklet that I run in my
+browser. The bookmarklet's sole purpose is for defining what title I want
+placed in the tweet, and pulling the URL out from `window.location`.
+
+There is also a chat bot idling in the IRC channel who listens to tweets from
+@spamthenet and notifies all users in the channel.
 
 # Contributing
 
