@@ -1,4 +1,4 @@
-![](https://raw.github.com/tybenz/spamthe.net/gh-pages/img/logo-small.png)
+![](https://github.com/tybenz/spamthe.net/blob/gh-pages/img/logo-small.png?raw=true)
 
 This is a link spammer/aggregator. What does that mean? It means I spend a good
 chunk of my day reading articles and I want to share them with people.
